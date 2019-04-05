@@ -1,0 +1,103 @@
+<div class="invoiceForm">
+  <div class="tableHeader">
+    <span class="small"></span>
+    <span>Code</span>
+    <span class="large">Description</span>
+    <span class="text-align-right small">Qty.</span>
+    <span class="text-align-right"
+      >Price <br />
+      <small>including VAT</small></span
+    >
+    <span class="text-align-right small">VAT</span>
+    <span class="text-align-right">Net</span>
+  </div>
+
+  <form class="tableBody" (ngSubmit)="save()" [formGroup]="invoiceForm">
+    <div class="productList">
+      <div
+        *ngFor="let item of invoices.controls; let i = index"
+        class="productItem"
+        formArrayName="invoices"
+      >
+        <div [formGroupName]="i">
+          <div class="delProduct small" (click)="removeInvoice(i)">
+            <span class="btn-icon">-</span>
+          </div>
+          <span>
+            <input type="text" placeholder="Code" formControlName="code" />
+          </span>
+          <span class="large"
+            ><input
+              type="text"
+              placeholder="Description"
+              formControlName="description"
+          /></span>
+          <span class="small"
+            ><input
+              class="text-align-right"
+              type="number"
+              placeholder="Quantity"
+              formControlName="quantity"
+              min="0"
+          /></span>
+          <span
+            ><input
+              class="text-align-right"
+              type="text"
+              placeholder="€0.00"
+              formControlName="price"
+              mask="dot_separator.2"
+              prefix="€  "
+          /></span>
+          <span class="text-align-right small"
+            ><select name="vatRate" id="vatRate" formControlName="vatRate">
+              <option value="22">22%</option>
+              <option value="10">10%</option>
+              <option value="5">5%</option>
+              <option value="4">4%</option>
+            </select></span
+          >
+          <span class="text-align-right">
+            {{ calcNet(i) }}
+          </span>
+        </div>
+      </div>
+      <div class="addItem" (click)="addItem()">
+        <span class="btn-icon">+</span>
+      </div>
+    </div>
+    <div class="finishInvoice">
+      <h3>
+        Subtotal: <span>{{ subTotal }}</span>
+      </h3>
+      <h3>
+        Net discount:
+        <span
+          ><input
+            type="text"
+            placeholder="€0.00"
+            formControlName="discount"
+            mask="dot_separator.2"
+            prefix="€  "
+        /></span>
+      </h3>
+      <h3 class="total">
+        Total: <span>{{ total }}</span>
+      </h3>
+      <div class="roundCents btn" (click)="roundCents()">Round Cents</div>
+    </div>
+    <div class="sendInvoice">
+      <button [disabled]="!invoiceForm.valid" class="btn" type="submit">Create Invoice</button>
+    </div>
+  </form>
+</div>
+
+<pre *ngIf="false">
+  <div *ngFor="let item of invoices.controls">
+    Code: {{ item.get("code").value }}
+    Description: {{ item.get("description").value }}
+    Quantity: {{ item.get("quantity").value }}
+    Price: {{ item.get("price").value }}
+    VAT: {{ item.get("vatRate").value }}
+  </div>
+</pre>

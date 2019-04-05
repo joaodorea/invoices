@@ -1,0 +1,29 @@
+header {
+  max-width: 1200px;
+  margin: auto;
+  
+  h1 {
+    color: #0577d9;
+    text-align: right;
+    font-weight: 600;
+  }
+}
+
+.storeInfo {
+  display: flex;
+
+  .user {
+    flex: 1;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  p,
+  h3 {
+    margin: 0 0 5px;
+  }
+  .address {
+    text-align: right;
+  }
+}

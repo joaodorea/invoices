@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,800");
+
+body {
+  font-family: "Nunito", sans-serif;
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+}
+.text-align-right {
+  text-align: right;
+}
+input,
+select {
+  padding: 5px;
+}
+
+.btn-icon {
+  display: inline-block;
+  width: 30px;
+  background-color: #ccc;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.4rem;
+  border: 2px solid #0177d6;
+  border-radius: 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
