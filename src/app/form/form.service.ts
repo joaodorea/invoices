@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { Observable } from "rxjs";
@@ -7,14 +7,15 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class FormService {
-  constructor(private http: HttpClient) {}
-
+  statusUpdated = new EventEmitter();
+  response: Observable<Object> = new Observable();
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     })
   };
-  response: Observable<Object> = new Observable();
+
+  constructor(private http: HttpClient) {}
 
   create(invoices): Observable<Object> {
     return this.http.post(

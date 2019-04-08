@@ -82,6 +82,7 @@ export class FormComponent implements OnInit {
       this.service.create(this.request).subscribe(resp => {
         if (resp["invoiceNumber"]) {
           this.responseStatus = true;
+          this.service.statusUpdated.emit(resp);
         } else {
           alert(resp["message"]);
         }

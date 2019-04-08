@@ -1,5 +1,9 @@
 <header>
   <h1>Invoice</h1>
+  <div *ngIf="invoiceResponse" class="responseStatus">
+    <p><b>Invoice number:</b> {{ invoiceResponse.invoiceNumber }}</p>
+    <p><b>Issued on:</b> {{ invoiceResponse.issuedOn | date: "dd/MM/yyyy" }}</p>
+  </div>
   <div class="storeInfo">
     <div class="user">
       <h3>Alen Smith</h3>

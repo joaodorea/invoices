@@ -1,16 +1,25 @@
 header {
   max-width: 1200px;
   margin: auto;
-  
+
+  .responseStatus {
+    text-align: right;
+
+    p {
+      margin: 0 0 5px;
+    }
+  }
   h1 {
     color: #0577d9;
     text-align: right;
     font-weight: 600;
+    margin-bottom: 15px;
   }
 }
 
 .storeInfo {
   display: flex;
+  margin-top: 15px;
 
   .user {
     flex: 1;
