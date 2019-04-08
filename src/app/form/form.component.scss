@@ -3,6 +3,10 @@ $blue-primary: #0177d6;
 .invoiceForm {
   margin: 50px auto 0;
   max-width: 1220px;
+
+  &.sent {
+    opacity: 0.7;
+  }
 }
 
 .tableBody .productItem > div,
@@ -11,8 +15,12 @@ $blue-primary: #0177d6;
     flex: 1;
     padding: 0 5px;
 
-    &.small { flex: .5}
-    &.large { flex: 2}
+    &.small {
+      flex: 0.5;
+    }
+    &.large {
+      flex: 2;
+    }
 
     input {
       width: 100%;
@@ -120,7 +128,7 @@ $blue-primary: #0177d6;
       color: white;
 
       &:disabled {
-        opacity: .5;
+        opacity: 0.5;
         cursor: default;
       }
     }

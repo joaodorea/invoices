@@ -1,4 +1,4 @@
-<div class="invoiceForm">
+<div class="invoiceForm" [ngClass]="{ sent: responseSent }">
   <div class="tableHeader">
     <span class="small"></span>
     <span>Code</span>
@@ -87,7 +87,9 @@
       <div class="roundCents btn" (click)="roundCents()">Round Cents</div>
     </div>
     <div class="sendInvoice">
-      <button [disabled]="!invoiceForm.valid" class="btn" type="submit">Create Invoice</button>
+      <button [disabled]="!invoiceForm.valid" class="btn" type="submit">
+        Create Invoice
+      </button>
     </div>
   </form>
 </div>

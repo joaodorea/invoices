@@ -10,7 +10,7 @@ import { FormService } from "./form.service";
 })
 export class FormComponent implements OnInit {
   invoiceForm: FormGroup;
-  responseStatus;
+  responseSent: boolean = false;
 
   get invoices(): FormArray {
     return <FormArray>this.invoiceForm.get("invoices");
@@ -81,7 +81,8 @@ export class FormComponent implements OnInit {
     if (this.invoiceForm.valid) {
       this.service.create(this.request).subscribe(resp => {
         if (resp["invoiceNumber"]) {
-          this.responseStatus = true;
+          this.invoiceForm.disable();
+          this.responseSent = true;
           this.service.statusUpdated.emit(resp);
         } else {
           alert(resp["message"]);
